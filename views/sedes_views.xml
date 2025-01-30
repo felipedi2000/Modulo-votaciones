@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+            <!-- Vista tipo lista -->
+    <record id="view_sede_list" model="ir.ui.view">
+        <field name="name">sede.list</field>
+        <field name="model">uniacme.sede</field>
+        <field name="arch" type="xml">
+            <list string="Procesos de Votación">
+                <field name="name" string="Name"/>
+                <field name="country_id" string="Country"/>
+                <field name="timezone" string="Time zone"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_sede_form" model="ir.ui.view">
+        <field name="name">sede.form</field>
+        <field name="model">uniacme.sede</field>
+        <field name="arch" type="xml">
+            <form string="Registrar sede">
+                <sheet>
+                    <group>
+                        <field name="name" string="Name"/>
+                        <field name="country_id" string="Country"/>
+                        <field name="timezone" string="Time zone"></field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

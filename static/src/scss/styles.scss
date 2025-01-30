@@ -1,0 +1,12 @@
+.fixed-size-image img{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.box-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

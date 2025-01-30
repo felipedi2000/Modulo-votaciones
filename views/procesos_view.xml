@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <!-- Vista tipo lista -->
+    <record id="view_proceso_votacion_list" model="ir.ui.view">
+        <field name="name">proceso_votacion.list</field>
+        <field name="model">uniacme.proceso.votacion</field>
+        <field name="arch" type="xml">
+            <list string="Procesos de Votación">
+                <field name="name" string="Descripción"/>
+                <field name="periodo_inicio" string="Inicio"/>
+                <field name="periodo_fin" string="Fin"/>
+                <field name="estado" string="Estado"/>
+                <field name="candidatos_ids" string="Candidatos"/>
+                <field name="votos" string="votos"></field>
+                <field name="sede_id" string="Sede" options="{'no_create': True, 'no_create_edit': True, 'no_quick_create': True}"/>
+            </list>
+        </field>
+    </record>
+
+
+    <record id="view_proceso_de_votacion_form" model="ir.ui.view">
+        <field name="name">proceso_votacion.form</field>
+        <field name="model">uniacme.proceso.votacion</field>
+        <field name="arch" type="xml">
+            <form string="Registrar proceso">
+                <sheet>
+                    <group>
+                        <field name="name" string="Descripción"/>
+                        <field name="periodo_inicio" string="Inicio"/>
+                        <field name="periodo_fin" string="Fin"/>
+                        <field name="estado" string="Estado"/>
+                        <field name="sede_id" string="Sede" options="{'no_create': True, 'no_create_edit': True, 'no_quick_create': True}"/>
+                        <field name="candidatos_ids" widget="many2many" string="Candidatos" domain="[('sede_id', '=', sede_id),('es_candidato', '=', True)]">
+                            <list>
+                                <field name="image_1920" widget="image" class="fixed-size-image"/>
+                                <field name="name" string="Nombre"/>
+                            </list>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

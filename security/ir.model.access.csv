@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_uniacme_estudiante,access_uniacme_estudiante,model_res_partner,base.group_user,1,1,1,1
+access_uniacme_proceso_votacion,access_uniacme_proceso_votacion,model_uniacme_proceso_votacion,base.group_user,1,1,1,1
+access_uniacme_sede,access_uniacme_sede,model_uniacme_sede,base.group_user,1,1,1,1
+access_uniacme_voto,access_uniacme_voto,model_uniacme_voto,base.group_user,1,1,1,1
+access_home_read_only,access_home_read_only,model_home,base.group_user,1,0,0,0
+access_importar_procesos_wizard,access_importar_procesos_wizard,model_importar_procesos_wizard,base.group_user,1,1,1,1
+access_voto_wizard,access_voto_wizard,model_voto_wizard,base.group_user,1,1,1,1

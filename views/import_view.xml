@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+    <record id="view_importar_procesos_wizard" model="ir.ui.view">
+        <field name="name">importar.procesos.wizard.form</field>
+        <field name="model">importar.procesos.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Importar Procesos de Votación">
+                <group>
+                    <field name="archivo" filename="nombre_archivo"/>
+                </group>
+                <footer>
+                    <button string="Descargar Plantilla" type="object" name="descargar_plantilla" class="btn-primary"/>
+                    <button string="Importar" type="object" name="importar_procesos" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

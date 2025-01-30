@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_estudiante_list" model="ir.ui.view">
+        <field name="name">estudiante.list</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="replace">
+                <list string="Students">
+                    <field name="image_1920" widget="image" class="fixed-size-image" string="Image"/>
+                    <field name="name" string="Name"/>
+                    <field name="vat" string="identification"/>
+                    <field name="carrera" string="Carrera"/>
+                    <field name="sede_id" string="Sede"/>
+                    <field name="es_candidato" string="Es candidato"></field>
+                </list>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_estudiante_form" model="ir.ui.view">
+        <field name="name">estudiante.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="attributes">
+                <attribute name="string">Identification</attribute>
+                <attribute name="placeholder">Your document number</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='is_company']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='contact_addresses']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='function']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- Ocultar campo estado -->
+            <xpath expr="//field[@name='state_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <!-- Ocultar campo 'website' -->
+            <xpath expr="//field[@name='website']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+                <xpath expr="//field[@name='mobile']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//div[@class='o_address_format']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//span[@name='address_name']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <!-- Ocultar campo 'title' -->
+            <xpath expr="//field[@name='title']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_registry_label']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='lang']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='sales_purchases']" position="replace">
+                <page string="Otros datos">
+                    <group>
+                        <field name="sede_id" string="Sede"  options="{'no_create': True, 'no_create_edit': True, 'no_quick_create':True}"/>
+                        <field name="carrera" string="Carrera" options="{'no_create': True, 'no_create_edit': True, 'no_quick_create':True}"></field>
+                        <field name="es_candidato" string="Es candidato?"  options="{'no_create': True, 'no_create_edit': True, 'no_quick_create':True}"></field>
+                    </group>
+                </page>
+            </xpath>
+            <xpath expr="//page[@name='contact_addresses']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='internal_notes']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='category_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='street2']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='parent_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='is_company']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='company_type']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@id='company']" position="attributes">
+                <attribute name="placeholder">nombre</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

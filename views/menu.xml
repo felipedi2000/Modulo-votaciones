@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_home" model="ir.actions.act_window">
+        <field name="name"> </field>
+        <field name="res_model">home</field>
+        <field name="view_mode">kanban</field>
+        <field name="target">current</field>
+        <field name="context">{'create': False}</field>
+    </record>
+
+    <record id="action_proceso_votacion" model="ir.actions.act_window">
+        <field name="name">Procesos de Votación</field>
+        <field name="res_model">uniacme.proceso.votacion</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'default_es_estudiante':True}</field>
+    </record>
+
+    <record id="action_estudiantes" model="ir.actions.act_window">
+        <field name="name">Estudiantes</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">['|', ('es_estudiante', '=', True), ('es_candidato', '=', True)]</field>
+        <field name="context">{'default_es_estudiante':True}</field>
+    </record>
+
+    <record id="action_sedes" model="ir.actions.act_window">
+        <field name="name">Sedes</field>
+        <field name="res_model">uniacme.sede</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <record id="action_votar" model="ir.actions.act_window">
+        <field name="name">Votar</field>
+        <field name="res_model">voto.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_voto_pivot" model="ir.actions.act_window">
+        <field name="name">Cantidad de Votos por Candidato</field>
+        <field name="res_model">uniacme.voto</field>
+        <field name="view_mode">pivot</field>
+        <field name="context">{}</field>
+    </record>
+    
+    <record id="action_importar_procesos_wizard" model="ir.actions.act_window">
+        <field name="name">Importar Procesos de Votación</field>
+        <field name="res_model">importar.procesos.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="proceso_votacion_menu"
+        name="Votaciones UNIACME"
+        action="action_home"
+        sequence="10"/>
+
+    <menuitem
+        id="estudiantes_submenu"
+        name="Estudiantes"
+        parent="proceso_votacion_menu"
+        action="action_estudiantes"/>
+
+    <menuitem
+        id="proceso_votacion_submenu"
+        name="Procesos de Votación"
+        parent="proceso_votacion_menu"
+        action="action_proceso_votacion"/>
+    
+    <menuitem
+        id="sedes_submenu"
+        name="Sedes"
+        parent="proceso_votacion_menu"
+        action="action_sedes"/>
+    
+    <menuitem 
+        id="menu_voto_pivot"
+        name="Votos por Candidato"
+        parent="proceso_votacion_menu"
+        action="action_voto_pivot"/>
+
+    <menuitem
+        id="menu_votacion"
+        name="Votar"
+        parent="proceso_votacion_menu"
+        action="action_votar"
+        sequence="10"/>
+    
+    <menuitem 
+        id="menu_importar_procesos" 
+        name="Importar Procesos de Votación" 
+        parent="proceso_votacion_menu" 
+        action="action_importar_procesos_wizard"/>
+
+</odoo>

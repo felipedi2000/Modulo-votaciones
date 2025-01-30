@@ -1,0 +1,8 @@
+<odoo>
+    <data noupdate="1">
+        <record id="home_record_1" model="home">
+            <field name="name">¡Bienvenido al Módulo!</field>
+            <field name="description">Seleccione una opción en el menú para continuar.</field>
+        </record>
+    </data>
+</odoo>
